@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- user bottom navigation -->
-        <aside class="bottom-nav footer--view">
+        <footer class="bottom-nav footer--view">
             <router-link
                 v-for="footerItem in footerList"
                 :key="footerItem.name"
@@ -11,7 +11,7 @@
             >
                 <div>{{ footerItem.name }}</div>
             </router-link>
-        </aside>
+        </footer>
     </div>
 </template>
 <script>
@@ -21,16 +21,19 @@ export default {
         return {
             footerList: [
                 {
-                    name: "홈",
-                    path: "/",
+                    name: "채팅방",
+                    path: "/chatroom",
+                    active: false,
                 },
                 {
-                    name: "채팅방",
+                    name: "홈",
                     path: "/",
+                    active: false,
                 },
                 {
                     name: "모임",
-                    path: "/",
+                    path: "/meeting",
+                    active: false,
                 },
             ],
         };
