@@ -1,0 +1,32 @@
+.select__input {
+    font-weight: 300;
+    font-size: 14px;
+    color: #b1b1b1;
+    width: 100%;
+    height: 46px;
+    padding: 16px;
+    margin-top: 1rem;
+    border-radius: 8px;
+    border: solid 1px #f8f8f8;
+    background-color: #f8f8f8;
+}
+.select__input:focus {
+    border-color: #ffcd4b;
+    font-weight: 300;
+    outline: none;
+}
+.search-wrap {
+    display: flex;
+}
+
+.search-wrap button {
+    max-width: 30px;
+    padding: 0px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.search-wrap button img {
+    width: 26px;
+}
