@@ -1,16 +1,16 @@
 <template>
     <div id="app">
-        <HelloWorld msg="Welcome to Your Vue.js App" />
+        <router-view></router-view>
+        <Footer />
     </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import Footer from "./layout/Footer/Footer.vue";
 export default {
     name: "App",
     components: {
-        HelloWorld,
+        Footer,
     },
 };
 </script>
