@@ -1,0 +1,25 @@
+.home-introduce-content {
+    display: flex;
+    margin-top: 24px;
+}
+.profile-image {
+    width: 44px;
+    height: 44px;
+    background-color: #b1b1b1;
+    border-radius: 100%;
+    margin-right: 24px;
+}
+.profile-introduce-text {
+    text-align: left;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.home-cart-empty {
+    margin-top: 24px;
+    width: 343px;
+    height: 445px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
