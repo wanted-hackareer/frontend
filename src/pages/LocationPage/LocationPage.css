@@ -1,0 +1,50 @@
+.location-container {
+    margin-top: 24px;
+}
+.location-description {
+    font-weight: 300;
+    font-size: 14px;
+    color: #6a6a6a;
+}
+.location-add-button__list {
+    display: flex;
+    margin-top: 16px;
+    justify-content: space-evenly;
+}
+.location-add-button {
+    padding: 6px 70px 6px 70px;
+    border: 1.2px solid #aeaeb2;
+    border-radius: 25px;
+}
+.location-waiting-container {
+    margin-top: 38px;
+    border-top: 2px solid #ddd;
+    padding-top: 74px;
+}
+.location-waiting-description {
+    font-weight: bold;
+    font-size: 18px;
+}
+.loaction-waiting-image {
+    width: 255px;
+    height: 237px;
+    left: 60px;
+    top: 366px;
+    margin: 0 auto;
+    margin-top: 24px;
+    background-color: #ffd568;
+    /* background: url(.png); */
+    opacity: 0.9;
+}
+.select-match__button {
+    position: absolute;
+    bottom: 65px;
+    right: 16px;
+    left: 16px;
+    background: #ffcd4b;
+    border-radius: 24px;
+    padding-top: 17px;
+    padding-bottom: 14px;
+    font-weight: 500;
+    font-size: 16px;
+}
