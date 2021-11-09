@@ -1,0 +1,17 @@
+.meeting-container {
+    margin-top: 24px;
+}
+.meeting-description {
+    text-align: left;
+    font-weight: 300;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+.meeting-write__button {
+    position: fixed;
+    bottom: 65px;
+    right: 16px;
+    background: #ffcd4b;
+    border-radius: 100%;
+    padding: 18.75px;
+}
