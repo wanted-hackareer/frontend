@@ -1,0 +1,39 @@
+.alert-item-container {
+    padding: 16px 10px;
+    background-color: #fff;
+    margin-bottom: 12px;
+}
+.alert-item-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.alert-item-read,
+.alert-item-time {
+    font-weight: 300;
+    font-size: 12px;
+    color: #aeaeb2;
+}
+.alert-item-main {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 24px;
+    font-weight: 300;
+    font-size: 14px;
+    color: #3c3c3c;
+}
+.alert-item-confirm-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.alert-confirm__button {
+    background: #ffcd4b;
+    border-radius: 24px;
+    padding: 12px 62px;
+}
+.alert-reject__button {
+    background: #e9e9e9;
+    border-radius: 24px;
+    padding: 12px 62px;
+}
