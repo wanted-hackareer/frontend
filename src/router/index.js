@@ -1,6 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../pages/Home/Home.vue";
+import Login from "../pages/LoginPage/LoginPage.vue";
+import Register from "../pages/RegisterPage/RegisterPage.vue";
 import Search from "../pages/Search/Search.vue";
 import ShoppingCartPage from "../pages/ShoppingCartPage/ShoppingCartPage.vue";
 import LocationPage from "../pages/LocationPage/LocationPage.vue";
@@ -14,6 +16,8 @@ Vue.use(VueRouter); // 라우트 정보
 
 const route = [
     { path: "/", name: "Home", component: Home },
+    { path: "/login", name: "Login", component: Login },
+    { path: "/register", name: "Register", component: Register },
     { path: "/search/:word?", name: "Search", component: Search },
     { path: "/shoppingcart", name: "ShoppingCartPage", component: ShoppingCartPage },
     { path: "/location", name: "LocationPage", component: LocationPage },
