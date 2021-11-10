@@ -1,9 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../pages/Home/Home.vue";
-import Login from "../pages/LoginPage/LoginPage.vue";
-import Register from "../pages/RegisterPage/RegisterPage.vue";
-import Search from "../pages/Search/Search.vue";
+import HomePage from "../pages/HomePage/HomePage.vue";
+import LoginPage from "../pages/LoginPage/LoginPage.vue";
+import RegisterPage from "../pages/RegisterPage/RegisterPage.vue";
+import SearchPage from "../pages/SearchPage/SearchPage.vue";
 import ShoppingCartPage from "../pages/ShoppingCartPage/ShoppingCartPage.vue";
 import LocationPage from "../pages/LocationPage/LocationPage.vue";
 import MeetingPage from "../pages/MeetingPage/MeetingPage.vue";
@@ -15,10 +15,10 @@ import ChatPage from "../pages/ChatPage/ChatPage.vue";
 Vue.use(VueRouter); // 라우트 정보
 
 const route = [
-    { path: "/", name: "Home", component: Home },
-    { path: "/login", name: "Login", component: Login },
-    { path: "/register", name: "Register", component: Register },
-    { path: "/search/:word?", name: "Search", component: Search },
+    { path: "/", name: "HomePage", component: HomePage },
+    { path: "/login", name: "LoginPage", component: LoginPage },
+    { path: "/register", name: "RegisterPage", component: RegisterPage },
+    { path: "/search/:word?", name: "SearchPage", component: SearchPage },
     { path: "/shoppingcart", name: "ShoppingCartPage", component: ShoppingCartPage },
     { path: "/location", name: "LocationPage", component: LocationPage },
     { path: "/meeting", name: "MeetingPage", component: MeetingPage },
@@ -26,7 +26,7 @@ const route = [
     { path: "/write", name: "WriteMeetingPage", component: WriteMeetingPage },
     { path: "/alert", name: "AlertPage", component: AlertPage },
     { path: "/chat/:id", name: "ChatPage", component: ChatPage },
-]; // Vue 라우터 인스턴스 생성
+];
 
 const router = new VueRouter({ mode: "history", routes: route });
 export default router;
