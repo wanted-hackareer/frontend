@@ -12,9 +12,11 @@
                     <MeetingChatComponent />
                 </div>
             </div>
-        </div>
-        <div>
-            <button class="meeting-write__button"></button>
+            <div>
+                <router-link to="/write">
+                    <button class="meeting-write__button"></button>
+                </router-link>
+            </div>
         </div>
     </div>
 </template>

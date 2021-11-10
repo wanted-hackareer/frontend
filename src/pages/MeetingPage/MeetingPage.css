@@ -1,5 +1,6 @@
 .meeting-container {
     margin-top: 24px;
+    padding: 0 16px 69px 16px;
 }
 .meeting-description {
     text-align: left;

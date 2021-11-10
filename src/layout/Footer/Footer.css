@@ -27,3 +27,11 @@
 .footer-btn--active {
     color: #ffd568;
 }
+.footer-chat-btn {
+    border: 2px solid #ffcd4b;
+    box-sizing: border-box;
+    border-radius: 24px;
+    margin: 7px 0;
+    padding: 10px 16px;
+    width: 80%;
+}

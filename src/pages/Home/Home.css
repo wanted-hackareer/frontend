@@ -1,6 +1,7 @@
 .home-introduce-content {
     display: flex;
     margin-top: 24px;
+    padding: 0 16px;
 }
 .profile-image {
     width: 44px;

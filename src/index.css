@@ -16,11 +16,17 @@ ul {
     margin: 0;
     padding: 0;
 }
+body {
+    height: 100vh;
+    background-color: #f8f8f8;
+}
 button {
     outline-style: none;
     background-color: #fff;
     font-family: inherit;
     border: none;
+    margin: 0;
+    padding: 0;
 }
 
 input,
@@ -36,8 +42,9 @@ textarea {
     font-family: inherit;
 }
 .app-container {
-    margin-top: 44px;
-    padding: 16px;
+    /* padding: 44px 16px 0 16px; */
+    padding-top: 44px;
+    background: #fff;
 }
 #app {
     font-family: "Apple SD Gothic NeoR", "Roboto", sans-serif;

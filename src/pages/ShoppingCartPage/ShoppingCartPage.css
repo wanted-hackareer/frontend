@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     text-align: left;
+    padding: 0 16px;
 }
 .shopping-cart-total {
     padding: 19px 0 16px 0;
@@ -17,7 +18,7 @@
     border-bottom: 1px solid #ddd;
 }
 .select-location__button {
-    position: absolute;
+    position: fixed;
     bottom: 65px;
     right: 16px;
     left: 16px;

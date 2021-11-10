@@ -2,7 +2,9 @@
     <div>
         <!-- user bottom navigation -->
         <footer class="bottom-nav footer--view">
+            <input v-if="$route.path === '/chat/1'" class="footer-chat-btn" type="text" />
             <router-link
+                v-else
                 v-for="footerItem in footerList"
                 :key="footerItem.name"
                 :to="footerItem.path"
