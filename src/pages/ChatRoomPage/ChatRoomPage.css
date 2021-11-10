@@ -1,0 +1,22 @@
+.chat-room-container {
+    margin-top: 24px;
+}
+.chat-room-my-meeting {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    border-bottom: 2px solid #e9e9e9;
+}
+
+.chat-room-my-meeting .description,
+.chat-room-my-chat .description {
+    font-weight: 300;
+    font-size: 14px;
+    padding: 0 16px;
+}
+.chat-room-my-chat {
+    margin-top: 12px;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+}
