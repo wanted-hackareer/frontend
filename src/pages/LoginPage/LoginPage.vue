@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header headerNavigationTitle="로그인" />
+        <Header :hasBackButton="false" headerNavigationTitle="로그인" />
         <div class="app-container">
             <div class="login-container">
                 <div class="app-logo"></div>

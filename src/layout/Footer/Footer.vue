@@ -1,8 +1,8 @@
 <template>
     <div>
         <!-- user bottom navigation -->
-        <footer class="bottom-nav footer--view">
-            <input v-if="$route.path === '/chat/1'" class="footer-chat-btn" type="text" />
+        <footer class="bottom-nav footer--view" v-if="checkCurrentPath">
+            <input v-if="$route.path === '/chat/1'" class="footer-chat-btn" placeholder="채팅을 입력해주세요." type="text" />
             <router-link
                 v-else
                 v-for="footerItem in footerList"
@@ -39,6 +39,18 @@ export default {
                 },
             ],
         };
+    },
+    computed: {
+        checkCurrentPath() {
+            const path = this.$route.path;
+            if (path === "/login") {
+                return false;
+            } else if (path === "/register") {
+                return false;
+            } else {
+                return true;
+            }
+        },
     },
 };
 </script>
