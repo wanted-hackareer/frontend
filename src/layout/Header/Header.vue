@@ -10,8 +10,11 @@
                     <button>←</button>
                 </div>
                 <span class="header__title">{{ headerNavigationTitle }}</span>
-                <router-link to="/shoppingcart">
-                    <button v-if="hasCartTab">장바구니</button>
+                <router-link v-if="hasCartTab" to="/shoppingcart">
+                    <button>장바구니</button>
+                </router-link>
+                <router-link v-if="hasAlertTab" to="/alert">
+                    <button>알림</button>
                 </router-link>
             </div>
         </nav>
@@ -21,7 +24,14 @@
 export default {
     name: "Header",
     props: {
-        hasCartTab: Boolean,
+        hasCartTab: {
+            type: Boolean,
+            default: false,
+        },
+        hasAlertTab: {
+            type: Boolean,
+            default: false,
+        },
         headerNavigationTitle: String,
     },
     data() {
