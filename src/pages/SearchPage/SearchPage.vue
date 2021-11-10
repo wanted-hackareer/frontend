@@ -15,7 +15,7 @@ import SearchInputComponent from "../../components/SearchInputComponent/SearchIn
 import Header from "../../layout/Header/Header.vue";
 
 export default {
-    name: "Search",
+    name: "SearchPage",
     components: {
         SearchInputComponent,
         Header,
@@ -23,5 +23,5 @@ export default {
 };
 </script>
 <style scoped>
-@import "./Search.css";
+@import "./SearchPage.css";
 </style>
