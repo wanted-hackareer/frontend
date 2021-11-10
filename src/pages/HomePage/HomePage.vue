@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header :hasCartTab="true" headerNavigationTitle="다믐" />
+        <Header :hasBackButton="false" :hasCartTab="true" headerNavigationTitle="다믐" />
         <div class="app-container">
             <div>
                 <div class="home-introduce-content">
@@ -18,7 +18,7 @@ import SearchInputComponent from "../../components/SearchInputComponent/SearchIn
 import Header from "../../layout/Header/Header.vue";
 
 export default {
-    name: "Home",
+    name: "HomePage",
     components: {
         Header,
         SearchInputComponent,
@@ -26,5 +26,5 @@ export default {
 };
 </script>
 <style scoped>
-@import "./Home.css";
+@import "./HomePage.css";
 </style>
