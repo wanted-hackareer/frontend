@@ -1,0 +1,85 @@
+.login-container {
+    padding: 0 16px;
+    height: 100vh;
+}
+.app-logo {
+    width: 109px;
+    height: 44px;
+    background-color: #ffcd4b;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.login-text {
+    margin-top: 49px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #434343;
+}
+.login-input-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 24px;
+    text-align: left;
+}
+.login-email__input-text,
+.login-passwd__input-text {
+    font-weight: 500;
+    font-size: 16px;
+    color: #aeaeb2;
+}
+.login-input {
+    margin-bottom: 35px;
+}
+.login-input,
+.passwd-input {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #aeaeb2;
+}
+.login-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+}
+.login-save__email-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.login-save__email-checkbox {
+    margin-right: 11px;
+}
+.login-save__email {
+    font-weight: 300;
+    font-size: 14px;
+    color: #aeaeb2;
+}
+.login-find__passwd {
+    font-weight: 300;
+    font-size: 14px;
+}
+.login__button {
+    position: fixed;
+    bottom: 82px;
+    right: 16px;
+    left: 16px;
+    background: #ffcd4b;
+    border-radius: 24px;
+    padding-top: 17px;
+    padding-bottom: 14px;
+    font-weight: 500;
+    font-size: 16px;
+}
+.register__button {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    border: 0.75px solid #000000;
+    border-radius: 24px;
+    padding-top: 17px;
+    padding-bottom: 14px;
+    font-weight: 500;
+    font-size: 16px;
+}
