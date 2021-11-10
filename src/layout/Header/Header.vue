@@ -1,21 +1,21 @@
 <template>
     <div>
         <nav class="top-nav top-nav--active">
-            <!-- <div v-if="$route.path === '/'" to="/" class="header__nav header__title1">
-                <div class="" />
-                <button>back</button>
-            </div> -->
             <div class="header__nav">
-                <div @click="goToBack">
-                    <button>←</button>
+                <div>
+                    <div v-if="hasBackButton" @click="goToBack">
+                        <button>←</button>
+                    </div>
                 </div>
                 <span class="header__title">{{ headerNavigationTitle }}</span>
-                <router-link v-if="hasCartTab" to="/shoppingcart">
-                    <button>장바구니</button>
-                </router-link>
-                <router-link v-if="hasAlertTab" to="/alert">
-                    <button>알림</button>
-                </router-link>
+                <div>
+                    <router-link v-if="hasCartTab" to="/shoppingcart">
+                        <button>장바구니</button>
+                    </router-link>
+                    <router-link v-if="hasAlertTab" to="/alert">
+                        <button>알림</button>
+                    </router-link>
+                </div>
             </div>
         </nav>
     </div>
@@ -24,6 +24,10 @@
 export default {
     name: "Header",
     props: {
+        hasBackButton: {
+            type: Boolean,
+            default: true,
+        },
         hasCartTab: {
             type: Boolean,
             default: false,

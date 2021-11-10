@@ -16,6 +16,9 @@ ul {
     margin: 0;
     padding: 0;
 }
+div {
+    box-sizing: border-box;
+}
 html,
 body {
     width: 100%;
@@ -50,6 +53,7 @@ textarea {
     /* padding: 44px 16px 0 16px; */
     padding-top: 44px;
     background: #fff;
+    height: 100vh;
 }
 #app {
     font-family: "Apple SD Gothic NeoR", "Roboto", sans-serif;
