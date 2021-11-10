@@ -9,7 +9,7 @@
                     <div class="login-email__input-text">아이디</div>
                     <input class="login-input" type="text" />
                     <div class="login-passwd__input-text">비밀번호</div>
-                    <input class="passwd-input" type="text" />
+                    <input class="passwd-input" type="password" />
                 </div>
                 <div class="login-footer">
                     <div class="login-save__email-content">
