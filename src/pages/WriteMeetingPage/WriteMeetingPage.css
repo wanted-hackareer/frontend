@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     text-align: left;
+
     margin-bottom: 24px;
 }
 .write-title-wrapper .title,
@@ -19,6 +20,18 @@
     font-size: 14px;
     margin-bottom: 16px;
 }
+
+.write-title-wrapper .write-title-length {
+    position: absolute;
+    transform: translateX(288px) translateY(48.25px);
+    background-color: #f8f8f8;
+    color: #b1b1b1;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    color: #b1b1b1;
+}
+
 .title-input {
     border: none;
     background: #f8f8f8;
@@ -37,7 +50,7 @@
 .write-tag-wrapper .add-tag__button {
     border: 1.8px solid #ffd568;
     border-radius: 24px;
-    padding: 12px 32px;
+    padding: 10px 22px;
     color: #ffd568;
 }
 .write-week-wrapper {
@@ -49,6 +62,9 @@
     padding: 13px 40px;
     margin-right: 12px;
 }
+.write-week-wrapper .week__button-active {
+    background: #ffd568;
+}
 .write-week-wrapper .week-list {
     overflow-x: scroll;
 }
@@ -59,6 +75,42 @@
     border-radius: 8px;
     padding: 16px;
     justify-content: space-between;
+}
+.write-tag-wrapper .tag-input-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.write-tag-wrapper .tag-input {
+    border: none;
+    background: #f8f8f8;
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px 83px 10px 10px;
+}
+.write-tag-wrapper .write-tag-length {
+    position: absolute;
+    transform: translateX(223px) translateY(0.25px);
+    background-color: #f8f8f8;
+    color: #b1b1b1;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    color: #b1b1b1;
+}
+.write-tag-list {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    gap: 16px;
+}
+.write-tag-list__item {
+    border: 1.8px solid #ffd568;
+    box-sizing: border-box;
+    border-radius: 24px;
+    padding: 10px 26px;
 }
 .load-cart-content button {
     background: #f8f8f8;
