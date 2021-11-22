@@ -16,6 +16,11 @@
     border: 1.2px solid #aeaeb2;
     border-radius: 25px;
 }
+.location-add-button--active {
+    border: none;
+    background: #ffd568;
+    color: #000000;
+}
 .location-waiting-container {
     margin-top: 38px;
     border-top: 2px solid #ddd;
