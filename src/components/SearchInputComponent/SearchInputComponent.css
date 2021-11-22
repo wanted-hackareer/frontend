@@ -12,7 +12,7 @@
     background-color: #f8f8f8;
 }
 .select__input:focus {
-    border-color: #ffcd4b;
+    border: 2px solid #ffcd4b;
     font-weight: 300;
     outline: none;
 }

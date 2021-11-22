@@ -1,13 +1,9 @@
 <template>
     <div class="search-wrap">
-        <input type="texxt" class="select__input" placeholder="구매하고 싶은 항목을 검색해보세요." />
-        <router-link to="/search">
-            <input type="text" v-model="postcode" placeholder="우편번호" />
-            <input type="button" @click="execDaumPostcode()" value="우편번호 찾기" /><br />
-            <input type="text" id="address" placeholder="주소" /><br />
-            <input type="text" id="detailAddress" placeholder="상세주소" />
-            <input type="text" id="extraAddress" placeholder="참고항목" />
-            <button class="search__button">
+        <input type="texxt" class="select__input" v-model="searchData" :placeholder="getPlaceHolder" />
+        <router-link :to="`/search/${searchData}`">
+            <button v-if="isCart" class="search__button" @click="getSearchData"></button>
+            <button v-else class="search__button" @click="execDaumPostcode()">
                 <img src="" />
             </button>
         </router-link>
@@ -16,12 +12,29 @@
 <script>
 export default {
     name: "SearchInputComponent",
+    props: {
+        isCart: {
+            type: Boolean,
+            default: false,
+        },
+        searchDataFromProps: {
+            type: String,
+            default: "",
+        },
+    },
     data() {
         return {
             postcode: "",
             address: "",
             extraAddress: "",
+            searchData: this.searchDataFromProps,
         };
+    },
+    computed: {
+        getPlaceHolder() {
+            if (this.isCart) return "구매하고 싶은 항목을 검색해보세요.";
+            return "구매하고 싶은 항목을 검색해보세요.";
+        },
     },
     methods: {
         execDaumPostcode() {
@@ -59,7 +72,11 @@ export default {
                     // 우편번호를 입력한다.
                     this.postcode = data.zonecode;
                 },
-            }).embed(this.$refs.embed);
+            }).open(this.$refs.embed);
+        },
+
+        getSearchData() {
+            this.$emit("getSearchData", this.searchData);
         },
     },
 };
