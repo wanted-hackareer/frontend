@@ -5,7 +5,9 @@
                 <div class="chatbox-title">안서동😢 코스트코 장보러가자</div>
                 <div class="chatbox-sub-title">자취생인데 먹을게 다떨어졌는데 카드 있으신 분?</div>
             </div>
-            <div class="chatbox-favorites-buttons"></div>
+            <div class="chatbox-favorites-buttons">
+                <img src="../../assets/images/MeetingChatComponent/favorite.png" />
+            </div>
         </div>
         <div class="chatbox-body">
             <div class="chatbox-tag-list">

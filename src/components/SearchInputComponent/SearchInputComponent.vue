@@ -1,10 +1,17 @@
 <template>
     <div class="search-wrap">
         <input type="texxt" class="select__input" v-model="searchData" :placeholder="getPlaceHolder" />
-        <router-link :to="`/search/${searchData}`">
-            <button v-if="isCart" class="search__button" @click="getSearchData"></button>
+        <div v-if="isChat">
+            <button class="search__button">
+                <img src="../../assets/images/SearchInputComponent/search.png" />
+            </button>
+        </div>
+        <router-link v-else :to="`/search/${searchData}`">
+            <button v-if="isCart" class="search__button" @click="getSearchData">
+                <img src="../../assets/images/SearchInputComponent/search.png" />
+            </button>
             <button v-else class="search__button" @click="execDaumPostcode()">
-                <img src="" />
+                <img src="../../assets/images/SearchInputComponent/search.png" />
             </button>
         </router-link>
     </div>
@@ -14,6 +21,10 @@ export default {
     name: "SearchInputComponent",
     props: {
         isCart: {
+            type: Boolean,
+            default: false,
+        },
+        isChat: {
             type: Boolean,
             default: false,
         },
@@ -33,6 +44,7 @@ export default {
     computed: {
         getPlaceHolder() {
             if (this.isCart) return "구매하고 싶은 항목을 검색해보세요.";
+            if (this.isChat) return "채팅방을 검색해보세요.";
             return "구매하고 싶은 항목을 검색해보세요.";
         },
     },

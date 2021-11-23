@@ -10,7 +10,7 @@
                     <div class="shopping-cart-item">🍎 사과즙</div>
                 </div>
             </div>
-            <router-link to="/location">
+            <router-link to="/home/location">
                 <div class="select-location__button">위치 지정하기</div>
             </router-link>
         </div>
@@ -23,6 +23,13 @@ export default {
     name: "ShoppingCartPage",
     components: {
         Header,
+    },
+    created() {
+        this.getMyCartList();
+    },
+    methods: {
+        // 내 장바구니 리스트 가져오기
+        getMyCartList() {},
     },
 };
 </script>

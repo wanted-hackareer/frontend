@@ -16,3 +16,6 @@
     border-radius: 100%;
     padding: 18.75px;
 }
+.meeting-write__button-image {
+    display: block;
+}

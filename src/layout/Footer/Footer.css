@@ -24,7 +24,24 @@
     font-size: 12px;
     line-height: 12px;
 }
-.footer-btn--active {
+.footer-btn-item {
+    display: flex;
+    flex-direction: column;
+}
+.footer-item-image {
+    margin-top: 5px;
+}
+.footer-item-text {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-family: LotteMartDreamMedium;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    color: #aeaeb2;
+}
+.footer-btn--active .footer-item-text {
     color: #ffd568;
 }
 .footer-chat-btn {

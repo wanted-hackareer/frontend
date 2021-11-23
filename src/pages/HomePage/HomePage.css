@@ -14,6 +14,9 @@
     text-align: left;
     font-weight: bold;
     font-size: 18px;
+    line-height: 25px;
+    letter-spacing: -0.02em;
+    font-family: LotteMartDreamBold;
 }
 
 .home-cart-empty {
@@ -22,4 +25,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+.home-cart-empty-image {
+    background-size: cover;
+}
+.home-cart-empty-text {
+    font-family: LotteMartDreamLight;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 115%;
+    color: #b2b2b2;
 }

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header :hasBackButton="false" :hasCartTab="true" headerNavigationTitle="다믐" />
+        <Header :hasBackButton="false" :hasCartTab="true" />
         <div class="app-container">
             <div>
                 <div class="home-introduce-content">
@@ -9,7 +9,13 @@
                 </div>
                 <SearchInputComponent :isCart="true" />
             </div>
-            <div class="home-cart-empty">장바구니가 비었습니다.</div>
+            <div class="home-cart-empty">
+                <img class="home-cart-empty-image" src="../../assets/images/HomePage/cart-empty.png" />
+                <div class="home-cart-empty-text">
+                    당신의 장바구니가 <br />
+                    비어 있습니다.
+                </div>
+            </div>
         </div>
     </div>
 </template>

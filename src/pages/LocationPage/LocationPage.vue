@@ -12,16 +12,20 @@
                         :key="addressItem.id"
                         @click="execDaumPostcode(addressItem.id)"
                     >
-                        <div v-if="addressItem.active">{{ addressItem.sido }} {{ addressItem.sigungu }} {{ addressItem.bname }}</div>
-                        <div v-else>+</div>
+                        <div class="location-add-button-select" v-if="addressItem.active">
+                            {{ addressItem.sido }} {{ addressItem.sigungu }} {{ addressItem.bname }}
+                        </div>
+                        <div v-else>
+                            <img src="../../assets/images/PlusButtons/plus-gray.png" />
+                        </div>
                     </button>
                 </div>
                 <div class="location-waiting-container">
-                    <div class="location-waiting-description">00000명이 당신을 <br />기다리고 있어요.</div>
-                    <div class="loaction-waiting-image"></div>
+                    <div class="location-waiting-description"><span class="waiting-highlight">00000명</span>이 당신을 <br />기다리고 있어요.</div>
+                    <img src="../../assets/images/LocationPage/match.png" />
                 </div>
-                <router-link to="/location">
-                    <div class="select-match__button">매칭하기</div>
+                <router-link to="/home/location">
+                    <div class="select-match__button" :class="{ 'select-match__button--active': setMatchButton }" @click="startMatch">매칭하기</div>
                 </router-link>
             </div>
         </div>
@@ -43,12 +47,16 @@ export default {
             ],
         };
     },
+    computed: {
+        setMatchButton() {
+            if (this.addressList.filter((addressItem) => addressItem.active === true).length !== 0) return true;
+            else return false;
+        },
+    },
     methods: {
         execDaumPostcode(id) {
-            console.log(id);
             new window.daum.Postcode({
                 oncomplete: (data) => {
-                    console.log(data);
                     this.addressList[id].sido = data.sido;
                     this.addressList[id].sigungu = data.sigungu;
                     this.addressList[id].bname = data.bname;
@@ -88,6 +96,9 @@ export default {
                 },
             }).open(this.$refs.embed);
         },
+
+        //매칭하기
+        startMatch() {},
     },
 };
 </script>

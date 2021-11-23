@@ -13,9 +13,11 @@
     margin-bottom: 18px;
 }
 .chatbox-title {
+    font-family: "LotteMartDreamBold";
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 8px;
+    letter-spacing: -0.02em;
 }
 .chatbox-sub-title {
     font-weight: 300;
@@ -24,7 +26,6 @@
 .chatbox-favorites-buttons {
     width: 26.36px;
     height: 24px;
-    background-color: #ffd568;
 }
 .chatbox-body {
     padding: 0 16px 0 16px;

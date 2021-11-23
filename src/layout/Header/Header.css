@@ -28,8 +28,22 @@
     padding-left: 1rem;
     background-color: #fff;
 }
+.empty-button {
+    width: 30px;
+    height: 100%;
+}
 .header__title {
+    font-family: LotteMartDreamBold;
+    font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 18px;
+    letter-spacing: -0.02em;
+}
+.header-alert,
+.header-shopping-cart {
+    display: block;
+    margin: 0px auto;
+    background-position: center;
+    background-size: cover;
 }

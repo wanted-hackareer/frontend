@@ -2,7 +2,9 @@
     <div class="meeting-list-container">
         <MyMeetingItemComponent />
         <button class="meeting-add-button" @click="goToWritePage">
-            <div>+</div>
+            <div>
+                <img src="../../assets/images/PlusButtons/plus-gray.png" />
+            </div>
             <div class="meeting-add-button-description">추가하기</div>
         </button>
     </div>

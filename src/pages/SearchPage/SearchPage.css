@@ -32,6 +32,7 @@
     border-radius: 24px;
     padding-top: 17px;
     padding-bottom: 14px;
+    font-family: lottemartdreamMedium;
     font-weight: 500;
     font-size: 16px;
 }
@@ -44,6 +45,11 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 17px;
+    font-family: LotteMartDreamLight;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 12px;
+    color: #aeaeb2;
 }
 .search-list-container {
     display: flex;
@@ -59,6 +65,7 @@
     background: #f6f6f6;
     border-radius: 24px;
     padding: 13px 16px;
+    font-family: LotteMartDreamLight;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;

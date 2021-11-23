@@ -1,9 +1,9 @@
 <template>
     <div>
-        <Header :hasAlertTab="true" headerNavigationTitle="채팅방" />
+        <Header :hasAlertTab="true" :hasBackButton="false" headerNavigationTitle="채팅방" />
         <div class="app-container">
             <div class="chat-room-container">
-                <SearchInputComponent />
+                <SearchInputComponent :isChat="true" />
                 <div class="chat-room-my-meeting">
                     <div class="description">나의 장보기 모임</div>
                     <MyMeetingListComponent />
