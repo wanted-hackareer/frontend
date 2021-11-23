@@ -1,24 +1,33 @@
-# frontend
+# 해커리어 프론트엔드
 
-## Project setup
-```
-yarn install
-```
+스마일게이트 DEV CAMP 2기 과제 전형
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## 사용중인 라이브러리
 
-### Compiles and minifies for production
 ```
-yarn build
+-   vue-router(v3.5.3) : 라우터 작업을 위한 라이브러리
+-   axios(v0.24.0) : api 통신을 위한 라이브러리
+-   vuex(v3.6.2) : 상태 관리 라이브러리
 ```
 
-### Lints and fixes files
+### Vue 프로젝트 수행 명령어
+
 ```
-yarn lint
+package.json
+...
+"serve": "vue-cli-service serve"
+...
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+-   yarn serve
+
+### Vue 프로젝트 배포 명령어
+
+```
+package.json
+...
+"deploy": "vue-cli-service build && firebase deploy"
+...
+```
+
+-   yarn deploy
