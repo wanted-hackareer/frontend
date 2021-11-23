@@ -56,34 +56,29 @@ textarea {
     height: 100vh;
 }
 #app {
-    font-family: "Apple SD Gothic NeoR", "Roboto", sans-serif;
+    font-family: "LotteMartDreamLight", "Roboto", sans-serif;
     text-align: center;
     color: #333;
 }
-@font-face {
-    src: url("./assets/fonts/AppleSDGothicNeoB.ttf");
-    font-family: "Apple SD Gothic NeoB";
-}
-@font-face {
-    src: url("./assets/fonts/AppleSDGothicNeoEB.ttf");
-    font-family: "Apple SD Gothic NeoEB";
-}
 
 @font-face {
-    src: url("./assets/fonts/AppleSDGothicNeoH.ttf");
-    font-family: "Apple SD Gothic NeoH";
-}
-
-@font-face {
-    src: url("./assets/fonts/AppleSDGothicNeoM.ttf");
-    font-family: "Apple SD Gothic NeoM";
-}
-
-@font-face {
-    src: url("./assets/fonts/AppleSDGothicNeoR.ttf");
-    font-family: "Apple SD Gothic NeoR";
+    font-family: "LotteMartDreamMedium";
+    font-style: normal;
+    font-weight: 400;
+    src: url("//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff2") format("woff2"),
+        url("//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff") format("woff");
 }
 @font-face {
-    src: url("./assets/fonts/AppleSDGothicNeoSB.ttf");
-    font-family: "Apple SD Gothic NeoSB";
+    font-family: "LotteMartDreamBold";
+    font-style: normal;
+    font-weight: 700;
+    src: url("//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamBold.woff2") format("woff2"),
+        url("//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamBold.woff") format("woff");
+}
+@font-face {
+    font-family: "LotteMartDreamLight";
+    font-style: normal;
+    font-weight: 300;
+    src: url("//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamLight.woff2") format("woff2"),
+        url("//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamLight.woff") format("woff");
 }
