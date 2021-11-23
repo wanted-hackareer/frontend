@@ -15,12 +15,13 @@ import ChatPage from "../pages/ChatPage/ChatPage.vue";
 Vue.use(VueRouter); // 라우트 정보
 
 const route = [
-    { path: "/", name: "HomePage", component: HomePage },
+    { path: "/", redirect: "/home" },
+    { path: "/home", name: "HomePage", component: HomePage },
     { path: "/login", name: "LoginPage", component: LoginPage },
     { path: "/register", name: "RegisterPage", component: RegisterPage },
     { path: "/search/:word?", name: "SearchPage", component: SearchPage },
-    { path: "/shoppingcart", name: "ShoppingCartPage", component: ShoppingCartPage },
-    { path: "/location", name: "LocationPage", component: LocationPage },
+    { path: "/home/shoppingcart", name: "ShoppingCartPage", component: ShoppingCartPage },
+    { path: "/home/location", name: "LocationPage", component: LocationPage },
     { path: "/meeting", name: "MeetingPage", component: MeetingPage },
     { path: "/chatroom", name: "ChatRoomPage", component: ChatRoomPage },
     { path: "/write", name: "WriteMeetingPage", component: WriteMeetingPage },
