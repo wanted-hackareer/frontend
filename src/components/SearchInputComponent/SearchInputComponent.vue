@@ -6,7 +6,12 @@
                 <img src="../../assets/images/SearchInputComponent/search.png" />
             </button>
         </div>
-        <div v-if="isChat">
+        <div v-else-if="isRegister">
+            <button class="search__button">
+                <img src="../../assets/images/SearchInputComponent/search.png" />
+            </button>
+        </div>
+        <div v-else-if="isFilter">
             <button class="search__button">
                 <img src="../../assets/images/SearchInputComponent/search.png" />
             </button>
@@ -39,6 +44,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        isFilter: {
+            type: Boolean,
+            default: false,
+        },
         searchDataFromProps: {
             type: String,
             default: "",
@@ -57,6 +66,7 @@ export default {
             if (this.isCart) return "구매하고 싶은 항목을 검색해보세요.";
             else if (this.isChat) return "채팅방을 검색해보세요.";
             else if (this.isRegister) return "주소를 검색해주세요.";
+            else if (this.isFilter) return "어떤 모임을 찾고 싶으신가요?";
             return "구매하고 싶은 항목을 검색해보세요.";
         },
     },

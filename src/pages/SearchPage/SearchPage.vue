@@ -2,7 +2,9 @@
     <div>
         <Header headerNavigationTitle="검색" :hasCartTab="true" />
         <div class="app-container">
-            <SearchInputComponent :searchDataFromProps="searchData" :isCart="true" @getSearchData="getSearchData" />
+            <div class="search-search-component">
+                <SearchInputComponent :searchDataFromProps="searchData" :isCart="true" @getSearchData="getSearchData" />
+            </div>
             <div class="search-loading-content" v-if="loading">
                 <div class="loading-circle"></div>
                 <div class="loading-text">검색하고 있어요.</div>

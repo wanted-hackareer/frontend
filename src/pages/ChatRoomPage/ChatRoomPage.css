@@ -17,3 +17,6 @@
     text-align: left;
     flex-direction: column;
 }
+.chat-search-component {
+    padding: 0 16px;
+}

@@ -7,7 +7,9 @@
                     <div class="profile-image"></div>
                     <div class="profile-introduce-text">오늘은 어떤 장을 <br />함께 볼까요?</div>
                 </div>
-                <SearchInputComponent :isCart="true" />
+                <div class="home-search-component">
+                    <SearchInputComponent :isCart="true" />
+                </div>
             </div>
             <div class="home-cart-empty" v-if="getShoppingCartSize === 0">
                 <img class="home-cart-empty-image" src="../../assets/images/HomePage/cart-empty.png" />

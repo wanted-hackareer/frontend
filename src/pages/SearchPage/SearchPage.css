@@ -39,7 +39,9 @@
 .search-add-cart__button-active {
     background: #ffd568;
 }
-
+.search-search-component {
+    padding: 0 16px;
+}
 .search-status-bar {
     display: flex;
     flex-direction: row;

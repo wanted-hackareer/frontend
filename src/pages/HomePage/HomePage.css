@@ -18,7 +18,9 @@
     letter-spacing: -0.02em;
     font-family: LotteMartDreamBold;
 }
-
+.home-search-component {
+    padding: 0 16px;
+}
 .home-cart-empty {
     margin-top: 24px;
     height: 445px;

@@ -3,7 +3,9 @@
         <Header :hasAlertTab="true" :hasBackButton="false" headerNavigationTitle="채팅방" />
         <div class="app-container">
             <div class="chat-room-container">
-                <SearchInputComponent :isChat="true" />
+                <div class="chat-search-component">
+                    <SearchInputComponent :isChat="true" />
+                </div>
                 <div class="chat-room-my-meeting">
                     <div class="description">나의 장보기 모임</div>
                     <MyMeetingListComponent />
