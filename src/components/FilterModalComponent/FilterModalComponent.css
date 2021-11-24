@@ -1,0 +1,115 @@
+.modal__overlay {
+    scrollbar-width: none;
+    /* overflow: scroll; */
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 53;
+    background: rgba(0, 0, 0, 0.4);
+    overscroll-behavior: none;
+}
+
+.modal {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: max-content;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 24px 24px 0 0;
+    box-sizing: border-box;
+}
+
+.modal__overlay::-webkit-scrollbar {
+    width: 0px;
+}
+.modal__overlay.v-enter-from,
+.modal__overlay.v-leave-to {
+    opacity: 0;
+}
+.modal__overlay.v-enter-active,
+.modal__overlay.v-leave-active {
+    transition: opacity 0.4s;
+}
+.modal__overlay.v-enter .modal,
+.modal__overlay.v-leave-to .modal {
+    transform: translate3d(0, 100%, 0);
+}
+.modal__overlay.v-enter-active .modal,
+.modal__overlay.v-leave-active .modal {
+    transition: transform 0.3s;
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 23px;
+    margin-top: 23px;
+}
+.modal-blank {
+    width: 30px;
+}
+.modal-header-title {
+    font-family: LotteMartDreamBold;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 18px;
+}
+.modal-week-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 24px;
+}
+.modal-week-wrapper .title {
+    font-family: LotteMartDreamMedium;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    color: #2c2c2c;
+    text-align: left;
+}
+.modal-week-wrapper {
+    white-space: nowrap;
+}
+.modal-week-wrapper .week__button {
+    background: #f6f6f6;
+    border-radius: 24px;
+    padding: 13px 40px;
+    margin-right: 12px;
+}
+.modal-week-wrapper .week__button-active {
+    background: #ffd568;
+}
+.modal-week-wrapper .week-list {
+    -ms-overflow-style: none;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    margin-top: 16px;
+}
+.modal-week-wrapper .week-list::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+.modal-filter-text {
+    font-family: LotteMartDreamMedium;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    color: #2c2c2c;
+    text-align: left;
+}
+.modal-confirm-button {
+    background: #e9e9e9;
+    border-radius: 24px;
+    padding-top: 17px;
+    padding-bottom: 14px;
+    font-family: LotteMartdreamMedium;
+    font-weight: 500;
+    font-size: 16px;
+}
