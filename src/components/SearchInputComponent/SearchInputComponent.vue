@@ -6,14 +6,21 @@
                 <img src="../../assets/images/SearchInputComponent/search.png" />
             </button>
         </div>
-        <router-link v-else :to="`/search/${searchData}`">
-            <button v-if="isCart" class="search__button" @click="getSearchData">
+        <div v-if="isChat">
+            <button class="search__button">
                 <img src="../../assets/images/SearchInputComponent/search.png" />
             </button>
-            <button v-else class="search__button" @click="execDaumPostcode()">
+        </div>
+        <router-link v-else-if="isCart" :to="`/search/${searchData}`">
+            <button class="search__button" @click="getSearchData">
                 <img src="../../assets/images/SearchInputComponent/search.png" />
             </button>
         </router-link>
+        <div v-else>
+            <button class="search__button" @click="getSearchData">
+                <img src="../../assets/images/SearchInputComponent/search.png" />
+            </button>
+        </div>
     </div>
 </template>
 <script>
@@ -25,6 +32,10 @@ export default {
             default: false,
         },
         isChat: {
+            type: Boolean,
+            default: false,
+        },
+        isRegister: {
             type: Boolean,
             default: false,
         },
@@ -44,7 +55,8 @@ export default {
     computed: {
         getPlaceHolder() {
             if (this.isCart) return "구매하고 싶은 항목을 검색해보세요.";
-            if (this.isChat) return "채팅방을 검색해보세요.";
+            else if (this.isChat) return "채팅방을 검색해보세요.";
+            else if (this.isRegister) return "주소를 검색해주세요.";
             return "구매하고 싶은 항목을 검색해보세요.";
         },
     },

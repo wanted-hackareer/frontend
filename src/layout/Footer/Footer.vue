@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- user bottom navigation -->
-        <footer class="bottom-nav footer--view">
+        <footer class="bottom-nav footer--view" v-if="checkCurrentPath">
             <input v-if="$route.path === '/chat/1'" class="footer-chat-btn" type="text" placeholder="채팅을 입력해주세요." />
             <router-link
                 v-else
@@ -9,10 +9,10 @@
                 :key="footerItem.name"
                 :to="footerItem.path"
                 class="footer-btn"
-                :class="{ 'footer-btn--active': $route.path === footerItem.path }"
+                :class="{ 'footer-btn--active': $route.path.includes(footerItem.path) }"
             >
                 <div class="footer-btn-item">
-                    <img class="footer-item-image" :src="$route.path === footerItem.path ? footerItem.activeUrl : footerItem.imageUrl" />
+                    <img class="footer-item-image" :src="$route.path.includes(footerItem.path) ? footerItem.activeUrl : footerItem.imageUrl" />
                     <div class="footer-item-text">{{ footerItem.name }}</div>
                 </div>
             </router-link>
@@ -34,7 +34,7 @@ export default {
                 },
                 {
                     name: "홈",
-                    path: "/",
+                    path: "/home",
                     imageUrl: require("@/assets/images/Footer/home.png"),
                     activeUrl: require("@/assets/images/Footer/home-active.png"),
                     active: false,
@@ -50,12 +50,6 @@ export default {
         };
     },
     computed: {
-        checkCurrentPath2(curPath) {
-            const path = this.$route.path.split("/");
-            if (path.findIndex((i) => i === curPath) === -1) return true;
-            else return false;
-        },
-
         checkCurrentPath() {
             const path = this.$route.path;
             if (path === "/login") {
@@ -67,16 +61,6 @@ export default {
             }
         },
     },
-    // mounted() {
-    //     this.test();
-    // },
-    // methods: {
-    //     test() {
-    //         const path = this.$route.path.split("/");
-    //         if (path.findIndex((i) => i === footerItem.path) === -1) return true;
-    //         else return false;
-    //     },
-    // },
 };
 </script>
 <style scoped>

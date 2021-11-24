@@ -122,7 +122,7 @@ export default {
     },
     methods: {
         ...postHelper.mapMutations(["UPDATE_POST_TITLE", "UPDATE_POST_DESC", "UPDATE_POST_TAG"]),
-        // ...postHelper.mapActions(["getBlogWriteData", "updateBlogData", "postBlogData"]),
+        ...postHelper.mapActions(["postBoardData"]),
 
         clickWeekend(day) {
             this.weekList.forEach((item) => {
@@ -134,8 +134,6 @@ export default {
             this.tagList.push({ tag: this.postTagValue, active: false });
             this.postTagValue = "";
         },
-        // 작성 완료
-        submitBoard() {},
     },
 };
 </script>
