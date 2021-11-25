@@ -2,9 +2,6 @@
     padding: 0 16px;
 }
 .app-logo {
-    width: 109px;
-    height: 44px;
-    background-color: #ffcd4b;
     margin: 0 auto;
     margin-top: 50px;
 }
@@ -26,15 +23,18 @@
     font-weight: 500;
     font-size: 16px;
     color: #aeaeb2;
+    margin-top: 35px;
 }
-.login-input {
-    margin-bottom: 35px;
+.login-email-error {
+    margin-top: 10px;
 }
 .login-input,
 .passwd-input {
     outline: none;
     border: none;
+    padding: 16px 50px 16px 0;
     border-bottom: 1px solid #aeaeb2;
+    margin-bottom: 10px;
 }
 .login-footer {
     display: flex;
@@ -81,4 +81,9 @@
     padding-bottom: 14px;
     font-weight: 500;
     font-size: 16px;
+}
+.login-error {
+    font-size: 13px;
+    color: #e44848;
+    font-family: LotteMartDreamMedium;
 }

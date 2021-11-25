@@ -11,6 +11,15 @@
 .register-nickname__input {
     border: none;
     border-bottom: 1px solid black;
+    font-family: LotteMartDreamMedium;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    text-align: center;
+    color: #434343;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .register-input-container {
     display: flex;
@@ -26,7 +35,7 @@
     color: #aeaeb2;
 }
 .register-input {
-    margin-bottom: 35px;
+    margin-bottom: 10px;
 }
 .register-input,
 .passwd-input {
