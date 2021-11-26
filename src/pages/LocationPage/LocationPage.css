@@ -27,6 +27,7 @@
     border-radius: 25px;
     max-width: 164px;
     min-width: 164px;
+    cursor: pointer;
 }
 .location-add-button--active {
     border: none;
@@ -34,6 +35,7 @@
     color: #000000;
     padding: 13px 20px;
     word-break: keep-all;
+    cursor: pointer;
 }
 .location-waiting-container {
     margin-top: 38px;
@@ -68,4 +70,5 @@
 }
 .select-match__button--active {
     background: #ffd568;
+    cursor: pointer;
 }

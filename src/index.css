@@ -82,3 +82,35 @@ textarea {
     src: url("//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamLight.woff2") format("woff2"),
         url("//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamLight.woff") format("woff");
 }
+
+.search-loading-content {
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    margin: 17px;
+    padding: 60% 10% 60% 10%;
+}
+.loading-circle {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 5px solid #a0a0a0;
+    border-radius: 50%;
+    border-top-color: #ffd568;
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+}
+.loading-text {
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 15px;
+}
+@keyframes spin {
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+.error-text {
+    font-size: 13px;
+    color: #e44848;
+    font-family: LotteMartDreamMedium;
+}
