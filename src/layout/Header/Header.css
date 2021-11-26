@@ -28,6 +28,9 @@
     padding-left: 1rem;
     background-color: #fff;
 }
+.header-back__button {
+    cursor: pointer;
+}
 .empty-button {
     width: 30px;
     height: 100%;

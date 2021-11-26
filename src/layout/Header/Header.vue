@@ -5,7 +5,7 @@
                 <div>
                     <div v-if="hasBackButton" @click="goToBack">
                         <button>
-                            <img src="../../assets/images/Header/backbutton.png" />
+                            <img class="header-back__button" src="../../assets/images/Header/backbutton.png" />
                         </button>
                     </div>
                     <div v-else>
@@ -32,6 +32,9 @@
     </div>
 </template>
 <script>
+import { createNamespacedHelpers } from "vuex";
+const cartStore = createNamespacedHelpers("cartStore");
+
 export default {
     name: "Header",
     props: {
@@ -54,6 +57,9 @@ export default {
     },
     data() {
         return {};
+    },
+    computed: {
+        ...cartStore.mapGetters(["getShoppingCartSize"]),
     },
     methods: {
         goToBack() {
