@@ -52,13 +52,14 @@
 .write-tag-wrapper .add-tag__button {
     border: 1.8px solid #ffd568;
     border-radius: 24px;
-    padding: 10px 22px;
+    padding: 5px 22px;
     color: #ffd568;
 }
 .write-week-wrapper {
     white-space: nowrap;
 }
 .write-week-wrapper .week__button {
+    cursor: pointer;
     background: #f6f6f6;
     border-radius: 24px;
     padding: 13px 40px;
@@ -132,6 +133,7 @@
     max-width: 80px;
 }
 .write-tag-list__item {
+    cursor: pointer;
     background-color: #ffd568;
     box-sizing: border-box;
     border-radius: 24px;
@@ -146,6 +148,7 @@
     margin-top: 10px;
 }
 .write-complete__button {
+    cursor: pointer;
     position: fixed;
     bottom: 65px;
     right: 16px;

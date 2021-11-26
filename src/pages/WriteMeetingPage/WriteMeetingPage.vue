@@ -29,7 +29,9 @@
                         />
                         <button class="write-tag-length">{{ tagList.length }} / 10</button>
                         <div class="add-tag__button-list" @click="addTagItem">
-                            <button class="add-tag__button">+</button>
+                            <button class="add-tag__button">
+                                <img src="../../assets/images/PlusButtons/plus-yellow.png" />
+                            </button>
                         </div>
                     </div>
                     <div class="write-tag-list">
@@ -63,7 +65,7 @@
                     </div>
                 </div>
             </div>
-            <div class="select-location__button" @click="submitPost">작성 완료</div>
+            <div class="write-complete__button" @click="submitPost">작성 완료</div>
         </div>
     </div>
 </template>
@@ -140,7 +142,6 @@ export default {
         addTagItem() {
             if (this.tagItem.length === 0 || this.tagList.length >= 3) return;
             this.tagList.push({ name: this.tagItem });
-            console.log(this.tagList);
             this.tagItem = "";
         },
 
@@ -150,7 +151,7 @@ export default {
             this.errorList.tagBlank = "";
             this.errorList.weekBlank = "";
         },
-        
+
         validateTitle() {
             if (this.postTitle.length === 0) {
                 this.errorList.titleBlank = "제목을 입력해주세요.";
