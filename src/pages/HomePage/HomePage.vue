@@ -5,7 +5,9 @@
             <div>
                 {{ userNickName }} 님 안녕하세요!
                 <div class="home-introduce-content">
-                    <div class="profile-image"></div>
+                    <div class="profile-image">
+                        <img src="../../assets/images/HomePage/profile.png" />
+                    </div>
                     <div class="profile-introduce-text">오늘은 어떤 장을 <br />함께 볼까요?</div>
                 </div>
                 <div class="home-search-component">
@@ -25,12 +27,13 @@
                         <div>
                             <img class="header-alert" src="../../assets/images/Header/alert.png" />
                         </div>
-                        <div class="home-cart-item-header">이미 {{ cartList.length }}개의 물품이 담겨있어요!</div>
+                        <div class="home-cart-item-header">이미 {{ this.getShoppingCartSize }}개의 물품이 담겨있어요!</div>
                     </div>
                     <div class="home-cart-list">
-                        <div class="home-cart-item" v-for="cartItem in cartList" :key="cartItem.id">
+                        <div class="home-cart-item" v-for="cartItem in filterCartList" :key="cartItem.id">
                             {{ cartItem.name }}
                         </div>
+                        <div class="home-cart-item" v-if="this.getShoppingCartSize > 3">+{{ countCartList }}</div>
                     </div>
                     <router-link to="/home/location">
                         <button class="home-cart-matching">바로 매칭하기</button>
@@ -59,6 +62,14 @@ export default {
             userNickName: (state) => state.userNickName,
             cartList: (state) => state.cartList,
         }),
+        ...userHelper.mapGetters(["getShoppingCartSize"]),
+
+        filterCartList() {
+            return this.cartList.filter((_, index) => index < 3);
+        },
+        countCartList() {
+            return this.getShoppingCartSize - this.filterCartList.length;
+        },
     },
     created() {
         this.getMyProfile();
