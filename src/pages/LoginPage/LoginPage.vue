@@ -10,12 +10,12 @@
                 <div class="login-input-container">
                     <div class="login-email__input-text">이메일</div>
                     <input class="login-input" v-model="userEmailValue" ref="userEmail" type="text" />
-                    <div v-if="errorList.emailBlank.length !== 0" class="login-email-error login-error">{{ errorList.emailBlank }}</div>
+                    <div v-if="errorList.emailBlank.length !== 0" class="login-email-error error-text">{{ errorList.emailBlank }}</div>
                     <div class="login-passwd__input-text">비밀번호</div>
                     <input class="passwd-input" v-model="userPasswordValue" ref="password" type="password" />
-                    <div v-if="errorList.passwordBlank.length !== 0" class="login-error">{{ errorList.passwordBlank }}</div>
-                    <div v-if="errorList.notFound.length !== 0" class="login-error">{{ errorList.notFound }}</div>
-                    <div v-else-if="errorList.wrong.length !== 0" class="login-error">{{ errorList.wrong }}</div>
+                    <div v-if="errorList.passwordBlank.length !== 0" class="error-text">{{ errorList.passwordBlank }}</div>
+                    <div v-if="errorList.notFound.length !== 0" class="error-text">{{ errorList.notFound }}</div>
+                    <div v-else-if="errorList.wrong.length !== 0" class="error-text">{{ errorList.wrong }}</div>
                 </div>
                 <div class="login-footer">
                     <div class="login-save__email-content">
@@ -60,7 +60,7 @@ export default {
 
         userEmailValue: {
             get() {
-                return localStorage.getItem("userEmail") ? localStorage.getItem("userEmail") : this.userEmail;
+                return this.userEmail;
             },
             set(value) {
                 this.UPDATE_USER_EMAIL(value);
@@ -84,8 +84,11 @@ export default {
             },
         },
     },
+    created() {
+        this.RESET_ERROR_LIST();
+    },
     methods: {
-        ...userHelper.mapMutations(["UPDATE_USER_EMAIL", "UPDATE_PASSWORD", "UPDATE_SAVE_EMAIL_CHECK_BOX_STATUS"]),
+        ...userHelper.mapMutations(["UPDATE_USER_EMAIL", "UPDATE_PASSWORD", "UPDATE_SAVE_EMAIL_CHECK_BOX_STATUS", "RESET_ERROR_LIST"]),
         ...userHelper.mapActions(["postSignIn"]),
 
         checkValidation() {},
@@ -93,29 +96,25 @@ export default {
             this.errorList.emailBlank = "";
             this.errorList.passwordBlank = "";
         },
-        // 이메일 정규표현식 체크
-
-        validEmail() {
-            const re = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-            return re.test(this.userEmail);
+        validate() {
+            this.RESET_ERROR_LIST();
+            if (this.validateNickName) {
+                this.$refs.nickName.focus();
+                return true;
+            } else if (this.validateUserEmail) {
+                this.$refs.userEmail.focus();
+                return true;
+            } else if (this.validatePassword) {
+                this.$refs.password.focus();
+                return true;
+            } else {
+                this.RESET_ERROR_LIST();
+                return false;
+            }
         },
         clickLogin() {
-            this.reset();
-            if (this.userEmail.length === 0) {
-                this.errorList.emailBlank = "이메일을 입력해주세요.";
-                this.$refs.userEmail.focus();
-                return;
-            } else if (!this.validEmail()) {
-                this.errorList.emailBlank = "이메일 형식을 맞춰주세요.";
-                this.$refs.userEmail.focus();
-            } else if (this.password.length === 0) {
-                this.errorList.passwordBlank = "비밀번호를 입력해주세요.";
-                this.$refs.password.focus();
-                return;
-            } else {
-                this.reset();
-                this.postSignIn();
-            }
+            if (this.validate()) return;
+            this.postSignIn();
         },
     },
 };
