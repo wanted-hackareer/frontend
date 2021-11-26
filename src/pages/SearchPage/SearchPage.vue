@@ -3,7 +3,7 @@
         <Header headerNavigationTitle="검색" :hasCartTab="true" />
         <div class="app-container">
             <div class="search-search-component">
-                <SearchInputComponent :searchDataFromProps="searchData" :isCart="true" @getSearchData="getSearchData" />
+                <SearchInputComponent :searchDataFromProps="searchData" :isSearch="true" @getSearchData="getSearchData" />
             </div>
             <div class="search-loading-content" v-if="loading">
                 <div class="loading-circle"></div>
@@ -35,7 +35,12 @@
                         </div>
                     </div>
                 </div>
+                <div class="search-add-cart__alarm" :class="computedClass">
+                    <div>장바구니에 물품이 담겼습니다.</div>
+                    <div class="cart__alarm-confirm" @click="goToCartList">확인하기</div>
+                </div>
             </div>
+
             <div>
                 <div
                     class="search-add-cart__button"
@@ -78,6 +83,7 @@ export default {
             cartItem: (state) => state.cartItem,
             basketId: (state) => state.basketId,
             searchList: (state) => state.searchList,
+            addCartStatus: (state) => state.addCartStatus,
         }),
         cartListValue: {
             get() {
@@ -87,6 +93,13 @@ export default {
                 this.UPDATE_CART_LIST(value);
             },
         },
+        computedClass() {
+            if (this.addCartStatus) {
+                return "stagger-item";
+            } else {
+                return "stagger-item-out";
+            }
+        },
     },
     methods: {
         ...userHelper.mapMutations(["UPDATE_CART_LIST"]),
@@ -94,6 +107,7 @@ export default {
 
         // 로딩화면
         setLoadingPage() {
+            this.loading = true;
             setTimeout(() => {
                 this.loading = false;
             }, 2000);
@@ -118,8 +132,11 @@ export default {
             if (this.selectedSearchList.length === 0) return;
             this.postCartItem({ cartItemList: this.selectedSearchList });
         },
-
+        goToCartList() {
+            this.$router.push({ path: "/home/shoppingcart" });
+        },
         getSearchData(searchData) {
+            this.setLoadingPage();
             this.getCartItemList({ name: searchData });
         },
     },
