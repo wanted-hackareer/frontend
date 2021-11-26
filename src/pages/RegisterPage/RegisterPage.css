@@ -18,7 +18,7 @@
     line-height: 120%;
     text-align: center;
     color: #434343;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 10px;
 }
 .register-input-container {
@@ -36,6 +36,10 @@
 }
 .register-input {
     margin-bottom: 10px;
+}
+.passwd-input::placeholder,
+.register-input::placeholder {
+    color: #aeaeb2;
 }
 .register-input,
 .passwd-input {
@@ -66,4 +70,7 @@
 }
 .register__button--active {
     background: #ffd568;
+}
+.address-error {
+    margin-top: 10px;
 }
