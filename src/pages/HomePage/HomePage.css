@@ -76,15 +76,17 @@ home-cart-empty-image {
     align-items: center;
     justify-content: center;
     justify-content: flex-start;
-
     gap: 8px;
     margin-bottom: 24px;
+    flex-wrap: wrap;
 }
 .home-cart-item {
     background: #f6f6f6;
     border-radius: 24px;
     padding: 13px 16px;
-    min-width: 93px;
+    min-width: 73px;
+    text-align: center;
+    word-break: keep-all;
 }
 .home-cart-matching {
     cursor: pointer;
