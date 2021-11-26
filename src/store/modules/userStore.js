@@ -89,7 +89,7 @@ const userStore = {
             state.errorList.alreadyNickName = "";
         },
         RESET_USER_DATA(state) {
-            state.userEmail = "";
+            state.userEmail = localStorage.getItem("userEmail") ? localStorage.getItem("userEmail") : "";
             state.password = "";
             state.userNickName = "";
         },
