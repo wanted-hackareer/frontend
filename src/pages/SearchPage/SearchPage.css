@@ -34,6 +34,7 @@
 
 .search-add-cart__button-active {
     background: #ffd568;
+    cursor: pointer;
 }
 .search-search-component {
     padding: 0 16px;
@@ -78,11 +79,17 @@
 .add-item-tag__button-list {
     display: flex;
 }
+.add-cart-item-error,
+.cart-item-error {
+    margin-left: 16px;
+    text-align: left;
+}
 .add-item-tag__button {
     border: 1.8px solid #ffd568;
     border-radius: 24px;
-    padding: 10px 22px;
+    padding: 5px 22px;
     color: #ffd568;
+    cursor: pointer;
 }
 .search-list-container {
     display: flex;
@@ -96,6 +103,7 @@
     flex-direction: column;
 }
 .search-search-list--item {
+    cursor: pointer;
     background: #f6f6f6;
     border-radius: 24px;
     padding: 13px 16px;
