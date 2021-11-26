@@ -3,7 +3,6 @@
         <Header :hasBackButton="false" :hasCartTab="true" />
         <div class="app-container">
             <div>
-                {{ userNickName }} 님 안녕하세요!
                 <div class="home-introduce-content">
                     <div class="profile-image">
                         <img src="../../assets/images/HomePage/profile.png" />
