@@ -19,6 +19,7 @@
                 <div>
                     <router-link v-if="hasCartTab" to="/home/shoppingcart">
                         <img class="header-shopping-cart" src="../../assets/images/Header/shopping-cart.png" />
+                        <i class="header-icon">{{ getShoppingCartSize }}</i>
                     </router-link>
                     <router-link v-else-if="hasAlertTab" to="/alert">
                         <img class="header-alert" src="../../assets/images/Header/alert.png" />
@@ -33,7 +34,7 @@
 </template>
 <script>
 import { createNamespacedHelpers } from "vuex";
-const cartStore = createNamespacedHelpers("cartStore");
+const userHelper = createNamespacedHelpers("userStore");
 
 export default {
     name: "Header",
@@ -59,7 +60,7 @@ export default {
         return {};
     },
     computed: {
-        ...cartStore.mapGetters(["getShoppingCartSize"]),
+        ...userHelper.mapGetters(["getShoppingCartSize"]),
     },
     methods: {
         goToBack() {

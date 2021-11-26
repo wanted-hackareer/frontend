@@ -50,3 +50,18 @@
     background-position: center;
     background-size: cover;
 }
+.header-icon {
+    position: absolute;
+    right: 9px;
+    top: 4px;
+    background: #ffcd4b;
+    border-radius: 50%;
+    font-style: normal;
+    font-family: LotteMartDreamBold;
+    font-weight: bold;
+    font-size: 8px;
+    line-height: 8px;
+    text-align: center;
+    padding: 3px 5px;
+    color: #2c2c2c;
+}
