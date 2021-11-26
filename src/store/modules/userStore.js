@@ -109,7 +109,7 @@ const userStore = {
                     localStorage.setItem("token", data.token);
                     if (state.saveEmailCheckBoxStatus) localStorage.setItem("userEmail", state.userEmail);
                     else localStorage.removeItem("userEmail");
-                    router.replace({ path: "/" });
+                    router.replace({ path: "/home" });
                 })
                 .catch((error) => {
                     const errorMessage = error.response.data.message;
@@ -161,7 +161,8 @@ const userStore = {
                     },
                 })
                 .then(({ data }) => {
-                    state.searchList = data.data.map((i) => [{ basketId: state.basketId, name: i.name, clicked: false }])[0];
+                    const searchData = data.data.map((i) => [{ basketId: state.basketId, name: i.name, clicked: false }])[0];
+                    state.searchList = searchData ? searchData : [];
                 })
                 .catch((error) => {
                     console.log(error.response);
