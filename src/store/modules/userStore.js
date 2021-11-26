@@ -1,6 +1,6 @@
 import axios from "axios";
 import router from "../../router";
-const API_SERVER_URL = "http://fa65-1-230-138-165.ngrok.io/api/v1";
+const { API_SERVER_URL } = require("../../utils/apiUrl.js");
 
 const userStore = {
     namespaced: true,
@@ -13,10 +13,20 @@ const userStore = {
         basketId: "",
         cartItem: "",
         cartList: [],
+        addCartStatus: false,
         searchList: [],
         saveEmailCheckBoxStatus: localStorage.getItem("userEmail") ? true : false,
         myMeetingList: [],
-        errorList: { emailBlank: "", passwordBlank: "", nickNameBlank: "", addressBlank: "", notFound: "", wrong: "" },
+        errorList: {
+            emailBlank: "",
+            passwordBlank: "",
+            nickNameBlank: "",
+            addressBlank: "",
+            notFound: "",
+            wrong: "",
+            alreadyEmail: "",
+            alreadyNickName: "",
+        },
     },
     getters: {
         // 유효성 검증
@@ -48,6 +58,9 @@ const userStore = {
                 return true;
             } else return false;
         },
+        getShoppingCartSize: (state) => {
+            return state.cartList.length;
+        },
     },
     mutations: {
         UPDATE_USER_EMAIL(state, payload) {
@@ -70,11 +83,18 @@ const userStore = {
             state.errorList.passwordBlank = "";
             state.errorList.nickNameBlank = "";
             state.errorList.addressBlank = "";
+            state.errorList.notFound = "";
+            state.errorList.wrong = "";
+            state.errorList.alreadyEmail = "";
+            state.errorList.alreadyNickName = "";
         },
         RESET_USER_DATA(state) {
             state.userEmail = "";
             state.password = "";
             state.userNickName = "";
+        },
+        TOGGLE_ADD_CART_STATUS(state) {
+            state.addCartStatus = !state.addCartStatus;
         },
     },
     actions: {
@@ -89,11 +109,13 @@ const userStore = {
                 .then(({ data }) => {
                     state.userNickName = data.nickName;
                     state.basketId = data.basket.id;
-                    state.cartList = data.basket.items;
+                    state.cartList = data.basket.itemList;
                     state.myMeetingList = data.staffList;
                 })
                 .catch((error) => {
-                    console.log(error.response);
+                    if (error.response.status === 400) {
+                        localStorage.removeItem("token");
+                    }
                 });
         },
 
@@ -122,7 +144,7 @@ const userStore = {
         },
 
         // 회원가입하기
-        async postSignUp(_, { userEmail, userNickName, password, addressList }) {
+        async postSignUp({ state, commit }, { userEmail, userNickName, password, addressList }) {
             await axios
                 .post(`${API_SERVER_URL}/sign-up`, {
                     email: userEmail,
@@ -136,16 +158,31 @@ const userStore = {
                     localStorage.removeItem("userEmail");
                 })
                 .catch((error) => {
-                    console.log(error.response);
+                    commit("RESET_ERROR_LIST");
+                    const errorMessage = error.response.data.message;
+                    if (errorMessage === "이미 존재하는 닉네임입니다") {
+                        state.errorList["alreadyNickName"] = "이미 존재하는 닉네임입니다.";
+                    } else if (errorMessage === "이미 존재하는 이메일입니다") {
+                        state.errorList["alreadyEmail"] = "이미 존재하는 이메일입니다.";
+                    }
                 });
         },
 
         // 장바구니 등록하기
-        async postCartItem({ state }, { cartItemList }) {
+        async postCartItem({ state, commit, dispatch }, { cartItemList }) {
             await axios
-                .post(`${API_SERVER_URL}/items`, cartItemList.map((i) => [{ basketId: state.basketId, name: i.name }])[0])
+                .post(
+                    `${API_SERVER_URL}/items`,
+                    cartItemList.map((i) => {
+                        return { basketId: state.basketId, name: i.name };
+                    })
+                )
                 .then(() => {
-                    router.push({ path: "/home/location" });
+                    dispatch("getMyProfile");
+                    commit("TOGGLE_ADD_CART_STATUS");
+                    setTimeout(() => {
+                        commit("TOGGLE_ADD_CART_STATUS");
+                    }, 3000);
                 })
                 .catch((error) => {
                     console.log(error.response);

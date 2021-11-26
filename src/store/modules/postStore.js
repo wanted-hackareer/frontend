@@ -1,7 +1,7 @@
 import axios from "axios";
 import router from "../../router";
 
-const API_SERVER_URL = "https://fa65-1-230-138-165.ngrok.io/api/v1";
+const { API_SERVER_URL } = require("../../utils/apiUrl.js");
 
 // 게시판 Store
 const postStore = {
