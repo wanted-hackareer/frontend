@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="chatbox-shopping__cart-list">
-                <div class="chatbox-cart-item" v-for="basketItem in postItem.basket.items" :key="basketItem.id">
+                <div class="chatbox-cart-item" v-for="basketItem in postItem.basket.itemList" :key="basketItem.id">
                     {{ basketItem.name }}
                 </div>
             </div>

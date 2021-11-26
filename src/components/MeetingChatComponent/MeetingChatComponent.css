@@ -38,10 +38,10 @@
     gap: 8px;
 }
 .chatbox-tag-item {
-    border: 1px solid #ffc737;
+    background: #ffc737;
     border-radius: 25px;
     padding: 8px 12px;
-    color: #ffd568;
+    color: #4d4d4d;
     font-weight: 300;
     font-size: 12px;
 }
