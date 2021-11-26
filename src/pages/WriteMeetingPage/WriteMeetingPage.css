@@ -37,12 +37,14 @@
     background: #f8f8f8;
     border-radius: 8px;
     padding: 16px 63px 16px 16px;
+    margin-bottom: 10px;
 }
 .write-detail-wrapper .detail-input {
     border: none;
     background: #f8f8f8;
     border-radius: 8px;
     padding: 16px 63px 16px 16px;
+    margin-bottom: 10px;
 }
 .write-tag-wrapper .add-tag__button-list {
     display: flex;
@@ -110,21 +112,38 @@
     flex-direction: row;
     margin-top: 10px;
     gap: 16px;
+    flex-wrap: wrap;
+}
+.write-cart-content {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+.write-cart-item {
+    background: #ffcd4b;
+    border-radius: 24px;
+    font-family: LotteMartDreamLight;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: #4d4d4d;
+    padding: 13px 16px;
+    min-width: 80px;
+    max-width: 80px;
 }
 .write-tag-list__item {
-    border: 1.8px solid #ffd568;
+    background-color: #ffd568;
     box-sizing: border-box;
     border-radius: 24px;
-    padding: 10px 26px;
+    padding: 10px 15px;
+    text-align: center;
+    word-break: break-all;
+    min-width: 80px;
+    max-width: 80px;
 }
-.load-cart-content button {
-    background: #f8f8f8;
-    cursor: pointer;
-}
-.load-cart-text {
-    font-weight: 300;
-    font-size: 14px;
-    color: #b1b1b1;
+.week-error,
+.tag-error {
+    margin-top: 10px;
 }
 .write-complete__button {
     position: fixed;
