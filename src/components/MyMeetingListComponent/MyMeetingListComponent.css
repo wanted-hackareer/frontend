@@ -10,6 +10,8 @@
     border: 2px solid #e9e9e9;
     box-sizing: border-box;
     border-radius: 9.8761px;
+    min-height: 160px;
+    max-height: 160px;
 }
 .meeting-add-button .meeting-add-button-description {
     font-weight: 300;
