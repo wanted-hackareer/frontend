@@ -2,8 +2,8 @@
     <div class="chatbox-container">
         <div class="chatbox-header">
             <div>
-                <div class="chatbox-title">안서동😢 코스트코 장보러가자</div>
-                <div class="chatbox-sub-title">자취생인데 먹을게 다떨어졌는데 카드 있으신 분?</div>
+                <div class="chatbox-title">{{ postItem.title }}</div>
+                <div class="chatbox-sub-title">{{ postItem.description }}</div>
             </div>
             <div class="chatbox-favorites-buttons">
                 <img src="../../assets/images/MeetingChatComponent/favorite.png" />
@@ -11,14 +11,14 @@
         </div>
         <div class="chatbox-body">
             <div class="chatbox-tag-list">
-                <div class="chatbox-tag-item">신입생</div>
-                <div class="chatbox-tag-item">친목</div>
-                <div class="chatbox-tag-item">빠른 더치페이 가능</div>
+                <div class="chatbox-tag-item" v-for="tagItem in postItem.tagList" :key="tagItem.id">
+                    {{ tagItem.name }}
+                </div>
             </div>
             <div class="chatbox-shopping__cart-list">
-                <div class="chatbox-cart-item">물 2L</div>
-                <div class="chatbox-cart-item">물 2L</div>
-                <div class="chatbox-cart-item">물 2L</div>
+                <div class="chatbox-cart-item" v-for="basketItem in postItem.basket.items" :key="basketItem.id">
+                    {{ basketItem.name }}
+                </div>
             </div>
         </div>
         <div class="chatbox-footer">
@@ -30,6 +30,11 @@
 <script>
 export default {
     name: "MeetingChatComponent",
+    props: {
+        postItem: {
+            type: Object,
+        },
+    },
 };
 </script>
 <style scoped>
