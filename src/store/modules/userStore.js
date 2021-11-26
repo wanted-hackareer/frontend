@@ -1,17 +1,21 @@
 import axios from "axios";
 import router from "../../router";
-const API_SERVER_URL = "http://4748-1-230-138-165.ngrok.io/api/v1";
+const API_SERVER_URL = "http://fa65-1-230-138-165.ngrok.io/api/v1";
 
 const userStore = {
     namespaced: true,
     state: {
-        userEmail: "",
+        userEmail: localStorage.getItem("userEmail") ? localStorage.getItem("userEmail") : "",
         password: "",
         userNickName: "",
         addressList: { city: "", district: "", street: "" },
         userToken: localStorage.getItem("token"),
-        cartList: {},
+        basketId: "",
+        cartItem: "",
+        cartList: [],
+        searchList: [],
         saveEmailCheckBoxStatus: localStorage.getItem("userEmail") ? true : false,
+        myMeetingList: [],
         errorList: { emailBlank: "", passwordBlank: "", nickNameBlank: "", addressBlank: "", notFound: "", wrong: "" },
     },
     getters: {
@@ -58,6 +62,20 @@ const userStore = {
         UPDATE_SAVE_EMAIL_CHECK_BOX_STATUS(state, payload) {
             state.saveEmailCheckBoxStatus = payload;
         },
+        UPDATE_CART_LIST(state, payload) {
+            state.cartItem = payload;
+        },
+        RESET_ERROR_LIST(state) {
+            state.errorList.emailBlank = "";
+            state.errorList.passwordBlank = "";
+            state.errorList.nickNameBlank = "";
+            state.errorList.addressBlank = "";
+        },
+        RESET_USER_DATA(state) {
+            state.userEmail = "";
+            state.password = "";
+            state.userNickName = "";
+        },
     },
     actions: {
         // 유저 정보 가져오기
@@ -69,8 +87,10 @@ const userStore = {
                     },
                 })
                 .then(({ data }) => {
-                    // console.log(data);
                     state.userNickName = data.nickName;
+                    state.basketId = data.basket.id;
+                    state.cartList = data.basket.items;
+                    state.myMeetingList = data.staffList;
                 })
                 .catch((error) => {
                     console.log(error.response);
@@ -89,7 +109,7 @@ const userStore = {
                     localStorage.setItem("token", data.token);
                     if (state.saveEmailCheckBoxStatus) localStorage.setItem("userEmail", state.userEmail);
                     else localStorage.removeItem("userEmail");
-                    router.push({ path: "/" });
+                    router.replace({ path: "/" });
                 })
                 .catch((error) => {
                     const errorMessage = error.response.data.message;
@@ -100,25 +120,66 @@ const userStore = {
                     }
                 });
         },
-        resetErrorList({ state }) {
-            state.errorList.emailBlank = "";
-            state.errorList.passwordBlank = "";
-            state.errorList.nickNameBlank = "";
-            state.errorList.addressBlank = "";
-        },
 
         // 회원가입하기
-        async postSignUp({ state }) {
+        async postSignUp(_, { userEmail, userNickName, password, addressList }) {
             await axios
                 .post(`${API_SERVER_URL}/sign-up`, {
-                    email: state.userEmail,
-                    nickName: state.userNickName,
-                    password: state.password,
-                    address: state.addressList,
+                    email: userEmail,
+                    nickName: userNickName,
+                    password: password,
+                    address: addressList,
                     profile: {},
                 })
-                .then((res) => {
-                    console.log(res);
+                .then(() => {
+                    router.replace("/login");
+                    localStorage.removeItem("userEmail");
+                })
+                .catch((error) => {
+                    console.log(error.response);
+                });
+        },
+
+        // 장바구니 등록하기
+        async postCartItem({ state }, { cartItemList }) {
+            await axios
+                .post(`${API_SERVER_URL}/items`, cartItemList.map((i) => [{ basketId: state.basketId, name: i.name }])[0])
+                .then(() => {
+                    router.push({ path: "/home/location" });
+                })
+                .catch((error) => {
+                    console.log(error.response);
+                });
+        },
+
+        // 장바구니 아이템 목록 가져오기
+        async getCartItemList({ state }, { name }) {
+            await axios
+                .get(`${API_SERVER_URL}/item/search`, {
+                    params: {
+                        name,
+                    },
+                })
+                .then(({ data }) => {
+                    state.searchList = data.data.map((i) => [{ basketId: state.basketId, name: i.name, clicked: false }])[0];
+                })
+                .catch((error) => {
+                    console.log(error.response);
+                });
+        },
+
+        // 위치로 매칭하기
+        async getMeetingListForLocation({ rootState }, { streetA, streetB }) {
+            await axios
+                .get(`${API_SERVER_URL}/post/search`, {
+                    params: {
+                        streetA,
+                        streetB,
+                    },
+                })
+                .then(({ data }) => {
+                    rootState.postStore.postCount = data.count;
+                    rootState.postStore.postList = data.data;
                 })
                 .catch((error) => {
                     console.log(error.response);
