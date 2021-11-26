@@ -29,8 +29,15 @@
     align-items: center;
     flex-direction: column;
 }
-.home-cart-empty-image {
+home-cart-empty-image {
     background-size: cover;
+}
+.home-cart-image {
+    background-size: cover;
+    position: fixed;
+    bottom: 44px;
+    right: 0;
+    left: 0;
 }
 .home-cart-empty-text {
     font-family: LotteMartDreamLight;
@@ -38,4 +45,56 @@
     font-size: 14px;
     line-height: 115%;
     color: #b2b2b2;
+}
+.home-cart-item-container {
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    margin-right: 16px;
+    margin-left: 16px;
+    padding: 20px 16px;
+    text-align: left;
+}
+.home-cart-item-header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 21px;
+}
+.home-cart-item-header {
+    font-family: LotteMartDreamMedium;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    color: #2c2c2c;
+}
+.home-cart-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    justify-content: flex-start;
+
+    gap: 8px;
+    margin-bottom: 24px;
+}
+.home-cart-item {
+    background: #f6f6f6;
+    border-radius: 24px;
+    padding: 13px 16px;
+}
+.home-cart-matching {
+    display: block;
+    margin: 0 auto;
+    background: #ffd568;
+    border-radius: 24px;
+    font-family: LotteMartDreamMedium;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000000;
+    padding: 17px 95px;
+    width: 283px;
 }
