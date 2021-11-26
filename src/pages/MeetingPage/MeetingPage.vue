@@ -43,7 +43,7 @@ export default {
     },
 
     created() {
-        this.getMeetingListForLocation({ districtA: this.$route.query.districtA, districtB: this.$route.query.districtB });
+        this.getMeetingListForLocation({ streetA: this.$route.query.streetA, streetB: this.$route.query.streetB });
     },
     computed: {
         ...postHelper.mapState({
