@@ -6,7 +6,7 @@
                 <img src="../../assets/images/SearchInputComponent/search.png" />
             </button>
         </div>
-        <div v-else-if="isRegister">
+        <div v-else-if="isRegister" @click="getSearchData">
             <button class="search__button">
                 <img src="../../assets/images/SearchInputComponent/search.png" />
             </button>
