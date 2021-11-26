@@ -126,10 +126,11 @@ export default {
     },
     created() {
         this.getMyProfile();
+        this.RESET_POST();
     },
     methods: {
         ...userHelper.mapActions(["getMyProfile"]),
-        ...postHelper.mapMutations(["UPDATE_POST_TITLE", "UPDATE_POST_DESC"]),
+        ...postHelper.mapMutations(["UPDATE_POST_TITLE", "UPDATE_POST_DESC", "RESET_POST"]),
         ...postHelper.mapActions(["postBoardData"]),
 
         clickWeekend(day) {
