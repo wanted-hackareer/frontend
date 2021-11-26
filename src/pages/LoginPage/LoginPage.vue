@@ -48,7 +48,6 @@ export default {
     components: {
         Header,
     },
-
     computed: {
         ...userHelper.mapState({
             userEmail: (state) => state.userEmail,
@@ -86,9 +85,16 @@ export default {
     },
     created() {
         this.RESET_ERROR_LIST();
+        this.RESET_USER_DATA();
     },
     methods: {
-        ...userHelper.mapMutations(["UPDATE_USER_EMAIL", "UPDATE_PASSWORD", "UPDATE_SAVE_EMAIL_CHECK_BOX_STATUS", "RESET_ERROR_LIST"]),
+        ...userHelper.mapMutations([
+            "UPDATE_USER_EMAIL",
+            "UPDATE_PASSWORD",
+            "UPDATE_SAVE_EMAIL_CHECK_BOX_STATUS",
+            "RESET_ERROR_LIST",
+            "RESET_USER_DATA",
+        ]),
         ...userHelper.mapActions(["postSignIn"]),
 
         checkValidation() {},
