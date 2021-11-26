@@ -1,33 +1,15 @@
 <template>
     <div class="search-wrap">
-        <input type="text" :class="{ 'select__input-error': error }" class="select__input" v-model="searchData" :placeholder="getPlaceHolder" />
-        <div v-if="isChat">
-            <button class="search__button">
-                <img src="../../assets/images/SearchInputComponent/search.png" />
-            </button>
-        </div>
-        <div v-else-if="isRegister" @click="getSearchData">
-            <button class="search__button">
-                <img src="../../assets/images/SearchInputComponent/search.png" />
-            </button>
-        </div>
-        <div v-else-if="isFilter">
-            <button class="search__button">
-                <img src="../../assets/images/SearchInputComponent/search.png" />
-            </button>
-        </div>
-        <div v-else-if="isCart" @click="goToSearch">
-            <button class="search__button">
-                <img src="../../assets/images/SearchInputComponent/search.png" />
-            </button>
-        </div>
-         <router-link v-else-if="isSearch" :to="`/search/${searchData}`">
-            <button class="search__button" @click="getSearchData">
-                <img src="../../assets/images/SearchInputComponent/search.png" />
-            </button>
-        </router-link>
-        <div v-else>
-            <button class="search__button" @click="getSearchData">
+        <input
+            type="text"
+            :class="{ 'select__input-error': error }"
+            ref="searchInput"
+            class="select__input"
+            v-model="searchData"
+            :placeholder="getPlaceHolder"
+        />
+        <div>
+            <button class="search__button" @click="clickSearchButton">
                 <img src="../../assets/images/SearchInputComponent/search.png" />
             </button>
         </div>
@@ -78,20 +60,30 @@ export default {
             else if (this.isChat) return "채팅방을 검색해보세요.";
             else if (this.isRegister) return "주소를 검색해주세요.";
             else if (this.isFilter) return "어떤 모임을 찾고 싶으신가요?";
-
-            return "구매하고 싶은 항목을 검색해보세요.";
+            else return "구매하고 싶은 항목을 검색해보세요.";
         },
     },
     methods: {
         getSearchData() {
             this.$emit("getSearchData", this.searchData);
         },
-        goToSearch() {
-            if (this.searchData.length === 0) {
-                this.error = true;
-                return;
-            }
-            this.$router.replace({ path: `/search/${this.searchData}` });
+        focusInput() {
+            this.$refs.searchInput.focus();
+        },
+        clickSearchButton() {
+            if (this.isCart) {
+                if (this.searchData.length === 0) {
+                    this.error = true;
+                    this.focusInput();
+                    return;
+                }
+                this.$router.replace({ path: `/home/search/${this.searchData}` });
+            } else if (this.isSearch) {
+                this.$router.replace({ path: `/home/search/${this.searchData}` });
+                this.getSearchData();
+            } else if (this.isRegister) {
+                this.getSearchData();
+            } else return;
         },
     },
 };
