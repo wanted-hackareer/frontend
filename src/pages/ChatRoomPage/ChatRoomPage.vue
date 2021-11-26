@@ -13,8 +13,6 @@
                 <div class="chat-room-my-chat">
                     <div class="description">채팅</div>
                     <ChattingListComponent />
-                    <ChattingListComponent />
-                    <ChattingListComponent />
                 </div>
             </div>
         </div>
@@ -25,6 +23,9 @@ import Header from "../../layout/Header/Header.vue";
 import SearchInputComponent from "../../components/SearchInputComponent/SearchInputComponent.vue";
 import ChattingListComponent from "../../components/ChattingListComponent/ChattingListComponent.vue";
 import MyMeetingListComponent from "../../components/MyMeetingListComponent/MyMeetingListComponent.vue";
+import { createNamespacedHelpers } from "vuex";
+const userHelper = createNamespacedHelpers("userStore");
+
 export default {
     name: "ChatRoomPage",
     components: {
@@ -32,6 +33,13 @@ export default {
         SearchInputComponent,
         ChattingListComponent,
         MyMeetingListComponent,
+    },
+
+    created() {
+        this.getMyProfile();
+    },
+    methods: {
+        ...userHelper.mapActions(["getMyProfile"]),
     },
 };
 </script>
