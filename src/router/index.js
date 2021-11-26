@@ -19,7 +19,7 @@ const route = [
     { path: "/home", name: "HomePage", component: HomePage },
     { path: "/login", name: "LoginPage", component: LoginPage },
     { path: "/register", name: "RegisterPage", component: RegisterPage },
-    { path: "/search/:word?", name: "SearchPage", component: SearchPage },
+    { path: "/home/search/:word?", name: "SearchPage", component: SearchPage },
     { path: "/home/shoppingcart", name: "ShoppingCartPage", component: ShoppingCartPage },
     { path: "/home/location", name: "LocationPage", component: LocationPage },
     { path: "/meeting:streetA?:streetB?", name: "MeetingPage", component: MeetingPage },
