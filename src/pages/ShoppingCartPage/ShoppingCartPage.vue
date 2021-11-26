@@ -3,11 +3,11 @@
         <Header headerNavigationTitle="나의 장바구니" />
         <div class="app-container">
             <div class="shopping-cart-container">
-                <div class="shopping-cart-total">총 {{ getShoppingCartSize }} 개</div>
+                <div class="shopping-cart-total">총 {{ cartList.length }} 개</div>
                 <div class="shopping-cart-list">
-                    <div class="shopping-cart-item">🍎 사과즙</div>
-                    <div class="shopping-cart-item">🍎 사과즙</div>
-                    <div class="shopping-cart-item">🍎 사과즙</div>
+                    <div class="shopping-cart-item" v-for="cartItem in cartList" :key="cartItem.id">
+                        {{ cartItem.name }}
+                    </div>
                 </div>
             </div>
             <router-link to="/home/location">
@@ -19,7 +19,7 @@
 <script>
 import Header from "../../layout/Header/Header.vue";
 import { createNamespacedHelpers } from "vuex";
-const cartStore = createNamespacedHelpers("cartStore");
+const userHelper = createNamespacedHelpers("userStore");
 
 export default {
     name: "ShoppingCartPage",
@@ -27,16 +27,15 @@ export default {
         Header,
     },
     computed: {
-        ...cartStore.mapState({
-            myShoppingCart: (state) => state.myShoppingCart,
+        ...userHelper.mapState({
+            cartList: (state) => state.cartList,
         }),
-        ...cartStore.mapGetters(["getShoppingCartSize"]),
     },
     created() {
-        this.getMyShoppingCart();
+        this.getMyProfile();
     },
     methods: {
-        ...cartStore.mapActions(["getMyShoppingCart"]),
+        ...userHelper.mapActions(["getMyProfile"]),
     },
 };
 </script>
