@@ -15,14 +15,22 @@
                         <div>총 {{ searchList.length }} 개</div>
                         <div>더보기</div>
                     </div>
+                    <div class="item-input-content">
+                        <input class="item-input" type="text" v-model="cartListValue" maxlength="10" placeholder="추가할 상품을 입력하세요." />
+                        <button class="item-tag-length">{{ cartListValue.length }} / 10</button>
+                        <div class="add-item-tag__button-list" @click="addTagItem">
+                            <button class="add-item-tag__button">+</button>
+                        </div>
+                    </div>
+
                     <div class="search-list-container">
-                        <div class="search-list-wrapper" v-for="searchItem in searchList" :key="searchItem.id">
+                        <div class="search-list-wrapper" v-for="searchItem in searchList" :key="searchItem.name">
                             <div
                                 class="search-search-list--item"
                                 :class="{ 'search-list--item-active': searchItem.clicked }"
-                                @click="selectSearchDataList(searchItem.id)"
+                                @click="selectSearchDataList(searchItem.name)"
                             >
-                                {{ searchItem.title }}
+                                {{ searchItem.name }}
                             </div>
                         </div>
                     </div>
@@ -44,6 +52,9 @@
 import SearchInputComponent from "../../components/SearchInputComponent/SearchInputComponent.vue";
 import Header from "../../layout/Header/Header.vue";
 
+import { createNamespacedHelpers } from "vuex";
+const userHelper = createNamespacedHelpers("userStore");
+
 export default {
     name: "SearchPage",
     components: {
@@ -53,39 +64,63 @@ export default {
     data() {
         return {
             searchData: this.$route.params.word,
-            searchList: [],
             selectedSearchList: [],
             loading: true,
         };
     },
     mounted() {
         this.setLoadingPage();
+        this.getSearchData(this.searchData);
+    },
+    computed: {
+        ...userHelper.mapState({
+            cartList: (state) => state.cartList,
+            cartItem: (state) => state.cartItem,
+            basketId: (state) => state.basketId,
+            searchList: (state) => state.searchList,
+        }),
+        cartListValue: {
+            get() {
+                return this.cartItem;
+            },
+            set(value) {
+                this.UPDATE_CART_LIST(value);
+            },
+        },
     },
     methods: {
+        ...userHelper.mapMutations(["UPDATE_CART_LIST"]),
+        ...userHelper.mapActions(["postCartItem", "getCartItemList"]),
+
         // 로딩화면
         setLoadingPage() {
             setTimeout(() => {
                 this.loading = false;
             }, 2000);
         },
-        getSearchData() {
-            this.searchList = [
-                { title: "사과즙", id: 1, clicked: false },
-                { title: "당근즙", id: 2, clicked: false },
-                { title: "딸기즙", id: 3, clicked: false },
-            ];
-        },
+
         // 물건 선택하기
-        selectSearchDataList(id) {
+        selectSearchDataList(name) {
             this.searchList.forEach((item) => {
-                if (item.id === id) item.clicked = !item.clicked;
+                if (item.name === name) item.clicked = !item.clicked;
             });
             this.selectedSearchList = this.searchList.filter((item) => item.clicked === true);
+        },
+
+        addTagItem() {
+            if (this.cartListValue.length === 0) return;
+            this.searchList.push({ basketId: this.basketId, name: this.cartListValue, clicked: false });
+            this.cartListValue = "";
         },
 
         // 카트에 담기
         addCartList() {
             if (this.selectedSearchList.length === 0) return;
+            this.postCartItem({ cartItemList: this.selectedSearchList });
+        },
+
+        getSearchData(searchData) {
+            this.getCartItemList({ name: searchData });
         },
     },
 };
