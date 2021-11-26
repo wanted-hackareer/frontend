@@ -1,3 +1,6 @@
+.select__input-error::placeholder {
+    color: #e44848;
+}
 .select__input {
     font-family: LotteMartDreamLight;
     font-weight: 300;
