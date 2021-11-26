@@ -1,7 +1,7 @@
 import axios from "axios";
 import router from "../../router";
 
-const API_SERVER_URL = "http://fa65-1-230-138-165.ngrok.io/api/v1";
+const API_SERVER_URL = "https://fa65-1-230-138-165.ngrok.io/api/v1";
 
 // 게시판 Store
 const postStore = {
@@ -22,6 +22,10 @@ const postStore = {
         UPDATE_POST_DESC(state, payload) {
             state.postDesc = payload;
         },
+        RESET_POST(state) {
+            state.postTitle = "";
+            state.postDesc = "";
+        },
     },
     actions: {
         // 게시물 등록
@@ -39,6 +43,8 @@ const postStore = {
                 .then(({ data }) => {
                     const newTagList = tagList.map((i) => [{ ...i, postId: data.id }])[0];
                     dispatch("postTagData", { tagList: newTagList });
+                    state.postTitle = "";
+                    state.postDesc = "";
                 })
                 .catch((error) => {
                     console.log(error.response);
