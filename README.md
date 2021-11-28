@@ -31,3 +31,8 @@ package.json
 ```
 
 -   yarn deploy
+
+
+배포 링크
+
+https://vue-project-733c5.web.app/
